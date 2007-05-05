@@ -1,6 +1,6 @@
 %define module 	XML-Records
 %define version 0.12
-%define release %mkrel 6
+%define release %mkrel 7
 
 Summary:	%{module} perl module
 Name: 		perl-%{module}
@@ -25,11 +25,9 @@ BuildArch:	noarch
 %{__perl} Makefile.PL INSTALLDIRS=vendor PREFIX=%{_prefix} 
 %{__make}
 
-
 %install
 rm -rf $RPM_BUILD_ROOT
 %{__make} PREFIX=$RPM_BUILD_ROOT%{_prefix} install
-
 
 %clean 
 rm -rf $RPM_BUILD_ROOT
