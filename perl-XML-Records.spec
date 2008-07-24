@@ -1,6 +1,6 @@
 %define module 	XML-Records
 %define version 0.12
-%define release %mkrel 7
+%define release %mkrel 9
 
 Summary:	%{module} perl module
 Name: 		perl-%{module}
