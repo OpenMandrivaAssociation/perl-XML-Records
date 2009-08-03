@@ -1,25 +1,25 @@
-%define module 	XML-Records
-%define version 0.12
-%define release %mkrel 10
+%define upstream_name 	 XML-Records
+%define upstream_version 0.12
 
-Summary:	%{module} perl module
-Name: 		perl-%{module}
-Version: 	%{version}
-Release: 	%{release}
-License: 	GPL or Artistic
+Name:       perl-%{upstream_name}
+Version:    %perl_convert_version %{upstream_version}
+Release:    %mkrel 1
+
+Summary:	%{upstream_name} perl module
+License: 	GPL+ or Artistic
 Group:		Development/Perl
-URL:		http://search.cpan.org/dist/%{module}
-Source0:	ftp://ftp.perl.org/pub/CPAN/modules/by-module/XML/%{module}-%{version}.tar.bz2
-BuildRoot: 	%{_tmppath}/%{name}-%{version}-buildroot
-BuildRequires:  perl-devel
+Url:		http://search.cpan.org/dist/%{upstream_name}
+Source0:	ftp://ftp.perl.org/pub/CPAN/modules/by-module/XML/%{upstream_name}-%{upstream_version}.tar.bz2
+
 BuildRequires:	perl(XML::TokeParser)
 BuildArch:	noarch
+BuildRoot: 	%{_tmppath}/%{name}-%{version}-%{release}
 
 %description
-%{module} - module for perl
+%{upstream_name} - module for perl
 
 %prep
-%setup -q -n %{module}-%{version}
+%setup -q -n %{upstream_name}-%{upstream_version}
 
 %build
 %{__perl} Makefile.PL INSTALLDIRS=vendor PREFIX=%{_prefix} 
@@ -37,4 +37,3 @@ rm -rf $RPM_BUILD_ROOT
 %doc README MANIFEST Changes
 %{_mandir}/*/*
 %{perl_vendorlib}/XML
-
