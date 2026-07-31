@@ -2,7 +2,7 @@
 %define upstream_version 0.12
 Name:		perl-%{upstream_name}
 Version:	0.12
-Release:	12
+Release:	1
 
 Summary:	%{upstream_name} perl module
 License:	GPL+ or Artistic
@@ -28,8 +28,11 @@ make
 %install
 %makeinstall_std
 
+%check
+make test || :
+
 %files
-%doc README MANIFEST Changes
+%doc Changes README
 %{_mandir}/*/*
 %{perl_vendorlib}/XML
 
